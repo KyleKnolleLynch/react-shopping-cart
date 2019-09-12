@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import CartState from './context/cart/CartState';
+import Navbar from './components/Navbar';
+import Cart from './components/Cart';
+import GpuList from './components/GpuList';
+import './CSS/style.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartState>
+      <Fragment>
+        <Navbar />
+        <div className='container'>
+          <Cart />
+          <GpuList />
+        </div>
+      </Fragment>
+    </CartState>
   );
-}
+};
 
 export default App;
