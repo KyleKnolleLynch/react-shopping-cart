@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../context/cart/cartContext';
 
 const GpuItem = props => {
+  const [cart, setCart] = useContext(CartContext);
+
   const addToCart = () => {
-    // add function
+    const Gpu = {
+      series: props.series,
+      name: props.name,
+      price: props.price
+    };
+
+    setCart(currentCart => [...currentCart, Gpu]);
   };
 
   return (
@@ -19,7 +28,7 @@ const GpuItem = props => {
           Add To Cart
         </button>
       </div>
-      <img src="" alt="item-img" className="img"></img>
+      <img src='' alt='item-img' className='img'></img>
     </div>
   );
 };
